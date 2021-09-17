@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "5ecdf3e1-5440-4993-9491-3292b2dd99d7",
+		"name": "Split Wise Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/createGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"groupName\" :\"Flat Expenses\",\r\n    \"mobileNumber\" : \"1234567890\",\r\n    \"adminId\":\"61445be5d0316ea4f853ce8a\",\r\n    \"participents\":[\r\n        \"61445be5d0316ea4f853ce8a\"\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/createGroup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"createGroup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/addExpenses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"groupId\":\"614460de214a0899fe0eed10\",\r\n    \"expenseDetails\":\"Rent\",\r\n    \"amount\":\"12000\",\r\n    \"spentBy\":\"61445be5d0316ea4f853ce8a\",\r\n    \"owesBy\":[\r\n        \"61445c16d0316ea4f853ce8e\",\r\n        \"61445c1dd0316ea4f853ce90\",\r\n        \"61445f6d71d4b8500203a5a5\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/addExpenses",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"addExpenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/addUser/614460de214a0899fe0eed10",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"participents\":[\r\n        \"61445be5d0316ea4f853ce8a\",\r\n        \"61445c16d0316ea4f853ce8e\",\r\n        \"61445c1dd0316ea4f853ce90\",\r\n        \"61445f6d71d4b8500203a5a5\"\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/addUser/614460de214a0899fe0eed10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"addUser",
+						"614460de214a0899fe0eed10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://127.0.0.1:3000/getExpenses/614460de214a0899fe0eed10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/getExpenses/614460de214a0899fe0eed10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"getExpenses",
+						"614460de214a0899fe0eed10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
